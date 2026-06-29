@@ -1,4 +1,11 @@
 /*css/styles.css*/
-* {
+:root {
+	/* For declaring color pallet?*/
+}
+*,
+*::befor,
+*::after, {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
