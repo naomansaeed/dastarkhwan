@@ -1,11 +1,66 @@
 /*css/styles.css*/
 :root {
-	/* For declaring color pallet?*/
+    /* --- Main Brand Palette (Bahawalpur Heritage) --- */
+    --clr-primary: #7f1d1d; /* Deep Burgundy (Main brand color) */
+    --clr-secondary: #b44141; /* Lighter Red (Hover states, secondary elements) */
+    --clr-accent: #d4af37; /* Metallic Gold (Highlights, borders, special details) */
+
+    /* --- UI Colors --- */
+    --clr-bg: #fef2f2; /* Soft Cream (Main page background) */
+    --clr-text: #1f2937; /* Dark Slate (Main text, softer than pure black) */
+
+    /* --- System Colors (For feedback messages) --- */
+    --clr-success: #15803d; /* Deep Green */
+    --clr-warning: #b45309; /* Muted Amber */
+    --clr-error: #b91c1c; /* Muted Red */
+
+    /* Typography: Elegant serif for heritage headings, clean sans-serif for body */
+    --ff-heading: "Playfair Display", Georgia, serif;
+    --ff-body: "Inter", system-ui, sans-serif;
+    /* Spacing Scale: Using 'rem' ensures spacing scales if the user changes browser text size */
+    --space-sm: 1rem; /* 16px */
+    --space-md: 2rem; /* 32px */
+    --space-lg: 4rem; /* 64px */
+    /* Additional style variables */
+    --border-color: #e5e7eb;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --shadow-sm: 0 2px 4px rgba(31, 41, 55, 0.08);
+    --transition-base: all 0.3s ease;
 }
+
+/* Reset browser default styling */
 *,
-*::befor,
-*::after, {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hides the skip link off-screen by default */
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: #fff;
+    padding: 0.5rem;
+    z-index: 100;
+}
+
+/* Slides the link into view ONLY when focused via keyboard */
+.skip-link:focus {
+    top: 0;
+}
+/* ============================================
+   LAYOUT: HEADER & NAVIGATION
+   ============================================ */
+.site-header {
+    background-color: var(--clr-bg);
+    padding: var(--space-sm) var(--space-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
