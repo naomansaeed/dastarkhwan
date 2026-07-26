@@ -15,7 +15,8 @@
     --clr-error: #b91c1c; /* Muted Red */
 
     /* Typography: Elegant serif for heritage headings, clean sans-serif for body */
-    --ff-heading: "Playfair Display", Georgia, serif;
+    --ff-logo: "Great Vibes", cursive;
+    --ff-heading: "Cormorant Garamond", "Playfair Display", Georgia, serif;
     --ff-body: "Inter", system-ui, sans-serif;
     /* Spacing Scale: Using 'rem' ensures spacing scales if the user changes browser text size */
     --space-sm: 1rem; /* 16px */
@@ -63,4 +64,37 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+/* site-header */
+.site-header h1 {
+    font-family: var(--ff-heading);
+    color: var(--clr-primary);
+}
+
+.site-header ul {
+    list-style: none;
+    display: flex;
+    gap: var(--space-sm);
+}
+
+/* Primary navigation styling */
+.nav-link {
+    text-decoration: none;
+    color: var(--clr-text);
+    transition: var(--transition-base);
+}
+.nav-link:hover {
+    color: var(--clr-primary);
+}
+
+.logo-link {
+    font-family: var(--ff-logo);
+    font-size: 2.5rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: inherit;
 }
