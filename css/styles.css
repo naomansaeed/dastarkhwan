@@ -1,22 +1,35 @@
 /*css/styles.css*/
 :root {
     /* --- Main Brand Palette (Bahawalpur Heritage) --- */
-    --clr-primary: #7f1d1d; /* Deep Burgundy (Main brand color) */
-    --clr-secondary: #b44141; /* Lighter Red (Hover states, secondary elements) */
-    --clr-accent: #d4af37; /* Metallic Gold (Highlights, borders, special details) */
+    --clr-primary: hsl(0, 63%, 31%); /* Deep Burgundy (Main brand color) */
+    --clr-secondary: hsl(
+        0,
+        47%,
+        48%
+    ); /* Lighter Red (Hover states, secondary elements) */
+    --clr-accent: hsl(
+        46,
+        65%,
+        52%
+    ); /* Metallic Gold (Highlights, borders, special details) */
 
     /* --- UI Colors --- */
-    --clr-bg: #fef2f2; /* Soft Cream (Main page background) */
-    --clr-text: #1f2937; /* Dark Slate (Main text, softer than pure black) */
+    --clr-bg: hsl(0, 86%, 97%); /* Soft Cream (Main page background) */
+    --clr-text: hsla(
+        215,
+        28%,
+        17%,
+        85%
+    ); /* Dark Slate (Main text, softer than pure black) */
 
     /* --- System Colors (For feedback messages) --- */
-    --clr-success: #15803d; /* Deep Green */
-    --clr-warning: #b45309; /* Muted Amber */
-    --clr-error: #b91c1c; /* Muted Red */
+    --clr-success: hsl(142, 72%, 29%); /* Deep Green */
+    --clr-warning: hsl(26, 90%, 37%); /* Muted Amber */
+    --clr-error: hsl(0, 74%, 42%); /* Muted Red */
 
-    --clr-pure-white: #ffffff;
-    --clr-true-black: #000000;
-    --clr-antique-gold: #b8860b;
+    --clr-pure-white: hsl(0, 0%, 100%);
+    --clr-true-black: hsl(0, 0%, 0%);
+    --clr-antique-gold: hsl(43, 89%, 38%);
 
     /* Typography: Elegant serif for heritage headings, clean sans-serif for body */
     --ff-logo: "Great Vibes", cursive;
@@ -27,10 +40,12 @@
     --space-md: 2rem; /* 32px */
     --space-lg: 4rem; /* 64px */
     /* Additional style variables */
-    --border-color: #e5e7eb;
+    --border-color: hsl(220, 13%, 91%);
     --radius-sm: 4px;
     --radius-md: 8px;
-    --shadow-sm: 0 2px 4px rgba(31, 41, 55, 0.08);
+    --shadow-sm: 0 2px 4px hsla(215, 28%, 17%, 0.08%);
+    --shadow-md: 0 3px 6px hsla(215, 28%, 17%, 0.08%);
+    --shadow-md-wt: 0 3px 6px hsla(220, 13%, 91%, 75%);
     --transition-base: all 0.3s ease;
 }
 
@@ -41,6 +56,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+p {
+    font-size: 1.125rem;
 }
 
 /* Hides the skip link off-screen by default */
@@ -90,11 +109,12 @@
 /* Primary navigation styling */
 .nav-link {
     text-decoration: none;
-    color: var(--clr-text);
+    color: var(--clr-bg);
     transition: var(--transition-base);
 }
 .nav-link:hover {
-    color: var(--clr-primary);
+    color: var(--clr-secondary);
+    text-shadow: var(--shadow-md-wt);
 }
 
 .logo-link {
@@ -102,12 +122,17 @@
     font-size: 2.5rem;
     letter-spacing: 0.03em;
     text-decoration: none;
-    color: inherit;
+    color: var(--clr-bg);
+}
+
+.logo-link:hover {
+    color: var(--clr-secondary);
+    text-shadow: var(--shadow-md-wt);
 }
 
 .hero {
     background:
-        linear-gradient(rgba(31, 41, 55, 0.5), rgba(31, 41, 55, 0.5)),
+        linear-gradient(hsla(215, 28%, 17%, 50%), hsla(215, 28%, 17%, 50%)),
         /* 1. Dark Overlay */ url("/images/banner.webp")
             /*  url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80") */
             /* 2. Hero Image */;
@@ -157,6 +182,60 @@
     box-shadow: var(--shadow-sm); /* Adds a subtle shadow underneath */
 }
 
-p {
-    font-size: 1.125rem;
+/* The solid state of the header when scrolled */
+.site-header.scrolled {
+    background-color: var(--clr-bg); /* Back to soft cream */
+    color: var(--clr-text); /* Back to dark slate text */
+    box-shadow: var(--shadow-sm); /* Adds a subtle shadow underneath */
+}
+
+/* Ensure the logo and links change color when the header is solid */
+
+.site-header.scrolled .nav-link {
+    color: inherit;
+}
+
+.site-header.scrolled .nav-link:hover {
+    color: var(--clr-primary);
+    border-bottom: 1px solid var(--clr-secondary);
+}
+
+.site-header.scrolled .logo-link {
+    color: var(--clr-primary);
+}
+
+.site-header.scrolled .logo-link:hover {
+    color: var(--clr-secondary);
+    text-shadow: var(--shadow-md);
+}
+
+.heritage {
+    background-color: var(--clr-bg);
+    padding: var(--space-lg) var(--space-md);
+    color: var(--clr-text);
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.container p {
+    margin: 1.5rem;
+}
+.btn-secondary {
+    display: inline-block;
+    background-color: var(--clr-bg);
+    color: var(--clr-text);
+    padding: 0.75rem 2rem;
+    text-decoration: none;
+    border: 1px solid var(--clr-accent);
+    border-radius: var(--radius-sm);
+    margin-top: var(--space-md);
+    transition: var(--transition-base);
+}
+.btn-secondary:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-text);
 }
