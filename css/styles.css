@@ -133,9 +133,7 @@ p {
 .hero {
     background:
         linear-gradient(hsla(215, 28%, 17%, 50%), hsla(215, 28%, 17%, 50%)),
-        /* 1. Dark Overlay */ url("/images/banner.webp")
-            /*  url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80") */
-            /* 2. Hero Image */;
+        url("/images/banner.webp");
     background-color: var(--clr-primary);
     background-size: cover;
     background-position: center;
@@ -224,6 +222,7 @@ p {
 .container p {
     margin: 1.5rem;
 }
+
 .btn-secondary {
     display: inline-block;
     background-color: var(--clr-bg);
@@ -235,7 +234,173 @@ p {
     margin-top: var(--space-md);
     transition: var(--transition-base);
 }
+
 .btn-secondary:hover {
     background-color: var(--clr-accent);
     color: var(--clr-text);
+}
+
+/* ============================================
+   SIGNATURE DISHES SECTION
+============================================ */
+.signature-dishes {
+    background-color: var(--clr-bg);
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+}
+
+.signature-dishes h2 {
+    font-family: var(--ff-heading);
+    font-size: 2.5rem;
+    color: var(--clr-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.section-intro {
+    font-size: 1.125rem;
+    color: var(--clr-text);
+    margin-bottom: var(--space-md);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pr-description {
+    display: flex;
+}
+
+/* Grid Layout */
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+}
+
+/* Dish Card */
+.dish-card {
+    background-color: var(--clr-pure-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+    position: relative;
+}
+
+.dish-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Dish Image Container */
+.dish-image {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.dish-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-base);
+}
+
+.dish-card:hover .dish-image img {
+    transform: scale(1.05);
+}
+
+/* Favorite Button */
+.favorite-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--clr-pure-white);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+}
+
+.heart-icon {
+    font-size: 1.5rem;
+    color: var(--clr-text);
+    transition: var(--transition-base);
+}
+
+.favorite-btn.active .heart-icon {
+    color: var(--clr-error);
+}
+
+/* Dish Content */
+.dish-content {
+    padding: var(--space-sm);
+    text-align: left;
+}
+
+.dish-content h3 {
+    font-family: var(--ff-heading);
+    font-size: 1.5rem;
+    color: var(--clr-primary);
+    margin-bottom: 0.5rem;
+}
+
+.dish-content p {
+    font-size: 1rem;
+    color: var(--clr-text);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Dish Footer (Price & Favorite Count) */
+.dish-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--clr-accent);
+}
+
+.favorite-count {
+    font-size: 0.875rem;
+    color: var(--clr-text);
+    opacity: 0.7;
+}
+
+/* Fix: Allow dishes grid to use more width */
+.signature-dishes .container {
+    max-width: 1200px; /* Wider container for the grid */
+}
+
+/* Adjust grid for better column distribution */
+.dishes-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    ); /* Slightly smaller min */
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+}
+
+/* Add missing shadow variable if not present */
+.shadow-md {
+    box-shadow: var(--shadow-md);
 }
