@@ -214,8 +214,10 @@ p {
     text-align: center;
 }
 
+
+
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -256,7 +258,7 @@ p {
     margin-bottom: var(--space-sm);
 }
 
-.section-intro {
+.signature-dishes .section-intro {
     font-size: 1.125rem;
     color: var(--clr-text);
     margin-bottom: var(--space-md);
@@ -265,9 +267,7 @@ p {
     margin-right: auto;
 }
 
-.pr-description {
-    display: flex;
-}
+
 
 /* Grid Layout */
 .dishes-grid {
@@ -384,10 +384,7 @@ p {
     opacity: 0.7;
 }
 
-/* Fix: Allow dishes grid to use more width */
-.signature-dishes .container {
-    max-width: 1200px; /* Wider container for the grid */
-}
+
 
 /* Adjust grid for better column distribution */
 .dishes-grid {
@@ -403,4 +400,69 @@ p {
 /* Add missing shadow variable if not present */
 .shadow-md {
     box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   THE DINING EXPERIENCE SECTION
+============================================ */
+.experience {
+    background-color: var(--clr-primary); /* Deep burgundy background */
+    color: var(--clr-pure-white);
+    padding: var(--space-md) var(--space-sm);
+    text-align: center;
+}
+
+.experience h2 {
+    font-family: var(--ff-heading);
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+}
+
+.experience .section-intro {
+    color: hsla(0, 0%, 100%, 0.8); /* Slightly transparent white for subtext */
+    margin-bottom: var(--space-lg);
+ /*   max-width: 600px; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-sm);
+    margin: 0 auto;
+}
+
+/* Feature Card */
+.feature-card {
+    background-color: hsla(0, 0%, 100%, 0.05); /* Very subtle white overlay */
+    border: 1px solid var(--clr-accent); /* Metallic gold border */
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+    transition: var(--transition-base);
+}
+
+.feature-card:hover {
+    background-color: hsla(0, 0%, 100%, 0.1); /* Slightly brighter on hover */
+    transform: translateY(-4px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+    display: block;
+}
+
+.feature-card h3 {
+    font-family: var(--ff-heading);
+    font-size: 1.5rem;
+    color: var(--clr-accent); /* Gold headings */
+    margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: hsla(0, 0%, 100%, 0.85);
 }
