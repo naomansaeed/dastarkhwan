@@ -466,3 +466,97 @@ p {
     line-height: 1.6;
     color: hsla(0, 0%, 100%, 0.85);
 }
+
+/* ============================================
+   TESTIMONIALS SECTION
+============================================ */
+.testimonials {
+    background-color: var(--clr-bg);
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-family: var(--ff-heading);
+    font-size: 2.5rem;
+    color: var(--clr-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.testimonials .section-intro {
+    font-size: 1.125rem;
+    color: var(--clr-text);
+    margin-bottom: var(--space-lg);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Testimonials Grid */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+    background-color: var(--clr-pure-white);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Star Rating */
+.stars {
+    color: var(--clr-accent);
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+    letter-spacing: 0.1em;
+}
+
+/* Quote */
+.testimonial-card blockquote {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--clr-text);
+    margin-bottom: var(--space-sm);
+    font-style: italic;
+    flex-grow: 1;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.testimonial-card blockquote::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: -0.5rem;
+    font-size: 3rem;
+    color: var(--clr-accent);
+    font-family: var(--ff-heading);
+    opacity: 0.3;
+}
+
+/* Customer Citation */
+.testimonial-card cite {
+    font-size: 0.875rem;
+    color: var(--clr-primary);
+    font-weight: 600;
+    font-style: normal;
+    display: block;
+    margin-top: auto;
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--border-color);
+}
