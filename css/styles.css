@@ -745,3 +745,107 @@ p {
 .social-link:hover img {
     filter: brightness(0); /* Makes the icons black on gold background */
 }
+
+/* -------------- */
+/* ============================================
+   PAGE HERO — reusable on About / Products / Visit
+============================================ */
+.page-hero {
+    background:
+        linear-gradient(hsla(215, 28%, 17%, 0.55), hsla(215, 28%, 17%, 0.55)),
+        url("/images/about-hero.webp"); /* your architectural-detail image */
+    background-color: var(--clr-primary); /* fallback while image loads/missing */
+    background-size: cover;
+    background-position: center;
+    min-height: 50vh; /* shorter than the homepage's 100vh */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--clr-pure-white);
+    padding: var(--space-lg) var(--space-md); /* breathing room on small screens */
+}
+
+.page-hero h2 {
+    font-family: var(--ff-heading);
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+}
+
+.page-hero p {
+    font-size: 1.25rem;
+    color: hsla(0, 0%, 100%, 0.85);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   THE ORIGIN SECTION
+============================================ */
+.origin {
+    background-color: var(--clr-bg);
+    padding: var(--space-lg) var(--space-md);
+    color: var(--clr-text);
+}
+
+.origin-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr; /* text gets 60%, image gets 40% */
+    gap: var(--space-md);
+    align-items: center; /* image vertically centers against the text column */
+}
+
+.origin-text h2 {
+    font-family: var(--ff-heading);
+    font-size: 2.5rem;
+    color: var(--clr-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.origin-text p {
+    margin: 0 0 1.25rem 0; /* overrides .container p's 1.5rem on all sides */
+    line-height: 1.7;
+}
+
+.origin-image {
+    margin: 0;
+}
+
+/* Cropping frame: owns the fallback color, radius, and clipping */
+.origin-photo {
+    position: relative;
+    min-height: 420px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background-color: var(--clr-primary);
+}
+
+/* Absolute-fill: immune to the percentage-height ambiguity */
+.origin-photo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Caption: dark text on cream — readable, plaque-like */
+.origin-image figcaption {
+    margin-top: var(--space-sm);
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--clr-text);
+    opacity: 0.8;
+}
+
+@media (max-width: 800px) {
+    .origin-grid {
+        grid-template-columns: 1fr; /* stack: text first, image below */
+    }
+    .origin-photo {
+        min-height: 360px;
+    }
+}
