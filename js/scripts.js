@@ -57,7 +57,7 @@
                // Visual feedback animation
                this.style.transform = 'scale(1.3)';
                setTimeout(() => {
-                   this.style.transform = 'scale(1)';
+                   this.style.transform = '';
                }, 200);
            });
        });

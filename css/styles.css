@@ -21,6 +21,7 @@
         17%,
         85%
     ); /* Dark Slate (Main text, softer than pure black) */
+    --clr-dark: hsl(215, 28%, 17%);
 
     /* --- System Colors (For feedback messages) --- */
     --clr-success: hsl(142, 72%, 29%); /* Deep Green */
@@ -43,8 +44,8 @@
     --border-color: hsl(220, 13%, 91%);
     --radius-sm: 4px;
     --radius-md: 8px;
-    --shadow-sm: 0 2px 4px hsla(215, 28%, 17%, 0.08%);
-    --shadow-md: 0 3px 6px hsla(215, 28%, 17%, 0.08%);
+    --shadow-sm: 0 2px 4px hsla(215, 28%, 17%, 0.08);
+    --shadow-md: 0 3px 6px hsla(215, 28%, 17%, 0.08);
     --shadow-md-wt: 0 3px 6px hsla(220, 13%, 91%, 75%);
     --transition-base: all 0.3s ease;
 }
@@ -56,6 +57,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+body {
+    font-family: var(--ff-body);
+    line-height: 1.6;
+    color: var(--clr-text);
 }
 
 p {
@@ -122,7 +128,7 @@ p {
     font-size: 2.5rem;
     letter-spacing: 0.03em;
     text-decoration: none;
-    color: var(--clr-bg);
+    color: var(--clr-accent);
 }
 
 .logo-link:hover {
@@ -565,7 +571,7 @@ p {
    VISIT US TEASER SECTION
 ============================================ */
 .visit-teaser {
-    background-color: var(--clr-text); /* Dark slate for an evening feel */
+    background-color: var(--clr-dark); /* Dark slate for an evening feel */
     color: var(--clr-pure-white);
     padding: var(--space-lg) var(--space-md);
     text-align: center;
