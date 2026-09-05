@@ -849,3 +849,163 @@ p {
         min-height: 360px;
     }
 }
+
+/* ============================================
+   THE KEEPERS OF THE DASTARKHWAN SECTION
+============================================ */
+.keepers {
+    background-color: var(--clr-primary);
+    color: var(--clr-pure-white);
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+}
+
+.keepers h2 {
+    font-family: var(--ff-heading);
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+}
+
+.keepers .section-intro {
+    font-size: 1.125rem;
+    color: hsla(0, 0%, 100%, 0.8);
+    max-width: 600px;
+    margin: 0 auto var(--space-md);
+}
+
+/* The creed: the centerpiece quote, framed like a plaque */
+.keeper-creed {
+    max-width: 700px;
+    margin: 0 auto var(--space-md);
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--clr-accent);
+    border-bottom: 1px solid var(--clr-accent);
+}
+
+.keeper-creed p {
+    font-family: var(--ff-heading);
+    font-size: 1.6rem;
+    font-style: italic;
+    line-height: 1.5;
+    margin: 0; /* overrides .container p's 1.5rem on all sides */
+}
+
+.keeper-creed cite {
+    display: block;
+    margin-top: var(--space-sm);
+    font-size: 0.9rem;
+    font-style: normal; /* cite defaults to italic; a name shouldn't be */
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--clr-accent);
+}
+
+/* Supporting narrative: centered block, left-aligned prose */
+.keepers-text {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.keepers-text p {
+    margin: 0 0 1.25rem 0;
+    line-height: 1.8;
+    color: hsla(0, 0%, 100%, 0.85);
+}
+
+/* ============================================
+   GALLERY SECTION — the "museum wall"
+============================================ */
+.gallery {
+    background-color: var(--clr-pure-white);
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+}
+
+.gallery h2 {
+    font-family: var(--ff-heading);
+    font-size: 2.5rem;
+    color: var(--clr-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.gallery .section-intro {
+    font-size: 1.125rem;
+    color: var(--clr-text);
+    max-width: 600px;
+    margin: 0 auto var(--space-md);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-md);
+}
+
+.gallery-item {
+    margin: 0; /* reset figure default */
+}
+
+.gallery-frame {
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background-color: var(--clr-primary); /* burgundy fallback while loading */
+    box-shadow: var(--shadow-sm);
+}
+
+.gallery-frame img {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition-base);
+}
+
+.gallery-frame:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item figcaption {
+    font-size: 0.9rem;
+    color: var(--clr-text);
+    opacity: 0.8;
+    padding-top: var(--space-sm);
+    letter-spacing: 0.02em;
+}
+
+/* ============================================
+   ABOUT CTA SECTION — the closing invitation
+============================================ */
+.about-cta {
+    background-color: var(--clr-text); /* dark slate bookend */
+    color: var(--clr-pure-white);
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+}
+
+.about-cta h2 {
+    font-family: var(--ff-heading);
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+}
+
+.about-cta .section-intro {
+    font-size: 1.125rem;
+    color: hsla(0, 0%, 100%, 0.8);
+    max-width: 600px;
+    margin: 0 auto var(--space-md);
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap; /* stack gracefully on narrow screens */
+}
+
+/* Neutralize the base buttons' differing top-margins so the row aligns */
+.cta-buttons .btn-primary,
+.cta-buttons .btn-secondary {
+    margin-top: 0;
+}
