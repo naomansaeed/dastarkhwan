@@ -21,10 +21,10 @@
             rel="stylesheet"
         />
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="manifest" href="/site.webmanifest">
 
         <!--Title -->
@@ -35,7 +35,12 @@
         <a href="#main" class="skip-link">Skip to main content</a>
         <header class="site-header">
             <h1><a href="index.html" class="logo-link">Dastarkhwan</a></h1>
-            <nav>
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <nav class="main-nav">
                 <ul>
                     <li><a href="index.html" class="nav-link" aria-current="page">Home</a></li>
                     <li><a href="about.html" class="nav-link">About</a></li>
@@ -43,6 +48,10 @@
                     <li><a href="visit.html" class="nav-link">Visit</a></li>
                 </ul>
             </nav>
+            <div class="favorites-indicator" aria-live="polite">
+                <span class="favorites-icon" aria-hidden="true">♥</span>
+                <span class="favorites-badge">0</span>
+            </div>
         </header>
         <main id="main" role="main" aria-label="Main content — Home Page">
             <section class="hero">
@@ -81,10 +90,10 @@
                     </div>
                     <div class="dishes-grid">
                         <!-- Dish 1 -->
-                        <article class="dish-card" data-dish-id="1">
+                        <article class="dish-card" data-dish-id="bahawalpuri-biryani">
                             <div class="dish-image">
                                 <img
-                                    src="/images/dish1.webp"
+                                    src="/images/menu/biryani.jpg"
                                     alt="Bahawalpuri Biryani"
                                 />
                                 <button
@@ -108,10 +117,10 @@
                         </article>
 
                         <!-- Dish 2 -->
-                        <article class="dish-card" data-dish-id="2">
+                        <article class="dish-card" data-dish-id="Nawabi Kebabs">
                             <div class="dish-image">
                                 <img
-                                    src="/images/dish2.webp"
+                                    src="/images/menu/seekh-kebab.jpg"
                                     alt="Nawabi Kebabs"
                                 />
                                 <button
@@ -135,10 +144,10 @@
                         </article>
 
                         <!-- Dish 3 -->
-                        <article class="dish-card" data-dish-id="3">
+                        <article class="dish-card" data-dish-id="Royal Korma">
                             <div class="dish-image">
                                 <img
-                                    src="/images/dish3.webp"
+                                    src="/images/menu/korma.jpg"
                                     alt="Royal Korma"
                                 />
                                 <button
@@ -162,10 +171,10 @@
                         </article>
 
                         <!-- Dish 4 -->
-                        <article class="dish-card" data-dish-id="4">
+                        <article class="dish-card" data-dish-id="Shahi Tukda">
                             <div class="dish-image">
                                 <img
-                                    src="/images/dish4.webp"
+                                    src="/images/menu/shahi-tukda.jpg"
                                     alt="Shahi Tukda"
                                 />
                                 <button

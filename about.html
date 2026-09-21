@@ -32,7 +32,12 @@
         <a href="#main" class="skip-link">Skip to main content</a>
         <header class="site-header">
             <h1><a href="index.html" class="logo-link">Dastarkhwan</a></h1>
-            <nav>
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <nav class="main-nav">
                 <ul>
                     <li><a href="index.html" class="nav-link">Home</a></li>
                     <li><a href="about.html" class="nav-link" aria-current="page">About</a></li>
@@ -42,7 +47,7 @@
             </nav>
         </header>
         <main id="main" role="main" aria-label="Main content — Our Story">
-            <section class="page-hero">
+            <section class="page-hero page-hero--about">
                 <div class="container">
                     <h2>Our Story</h2>
                     <p>A century of tradition, hospitality, and the royal flavors of Bahawalpur.</p>
@@ -148,6 +153,16 @@
             </figure>
 
             <!-- Figure 4 -->
+            <figure class="gallery-item">
+                <div class="gallery-frame">
+                    <img src="/images/gallery/jali-light.avif"
+                         alt="Afternoon light passing through a carved jali lattice screen, casting a geometric pattern of light and shadow on a sandstone wall."
+                         loading="lazy">
+                </div>
+                <figcaption>Light through the jali</figcaption>
+            </figure>
+
+            <!-- Figure 6 -->
             <figure class="gallery-item">
                 <div class="gallery-frame">
                     <img src="/images/gallery/musician.avif"
