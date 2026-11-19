@@ -807,6 +807,12 @@ p {
         url("/images/products-hero.jpg");
 }
 
+.page-hero--visit {
+    background-image:
+        linear-gradient(hsla(215, 28%, 17%, 0.55), hsla(215, 28%, 17%, 0.55)),
+        url("/images/visit-hero.jpg");
+}
+
 .page-hero h2 {
     font-family: var(--ff-heading);
     font-size: 3rem;
@@ -1243,5 +1249,195 @@ p {
     .search-box {
         flex: 1 1 auto;
         width: 100%;
+    }
+}
+
+/* ============================================
+   VISIT INFO SECTION — location, hours, contact
+============================================ */
+.visit-info {
+    background-color: var(--clr-bg);
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+}
+
+.visit-info h2 {
+    font-family: var(--ff-heading);
+    font-size: 2.5rem;
+    color: var(--clr-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.visit-info .section-intro {
+    font-size: 1.125rem;
+    color: var(--clr-text);
+    max-width: 620px;
+    margin: 0 auto var(--space-md);
+}
+
+/* Light variant of the homepage's dark-background visit cards */
+.visit-info .visit-card {
+    background-color: var(--clr-pure-white);
+    border-color: var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.visit-info .visit-card:hover {
+    border-color: var(--clr-accent);
+    box-shadow: var(--shadow-md);
+}
+
+.visit-info .visit-card p {
+    margin: 0 0 0.5rem;
+    color: var(--clr-text);
+}
+
+.visit-info .visit-card a {
+    color: var(--clr-primary);
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+.visit-info .visit-card a:hover {
+    color: var(--clr-antique-gold);
+}
+
+/* ============================================
+   RESERVATION SECTION (visit page)
+============================================ */
+.reservation {
+    background-color: var(--clr-primary);
+    color: var(--clr-pure-white);
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+}
+
+.reservation h2 {
+    font-family: var(--ff-heading);
+    font-size: 2.5rem;
+    margin-bottom: var(--space-sm);
+}
+
+.reservation .section-intro {
+    font-size: 1.125rem;
+    color: hsla(0, 0%, 100%, 0.85);
+    max-width: 600px;
+    margin: 0 auto var(--space-md);
+}
+
+/* The form card */
+.reservation-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--clr-pure-white);
+    color: var(--clr-text);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-md);
+    text-align: left;
+}
+
+/* Field groups */
+.form-group {
+    margin-bottom: var(--space-sm);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--clr-primary);
+}
+
+/* One rule styles all three field types */
+.reservation-form input,
+.reservation-form select,
+.reservation-form textarea {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    font-family: var(--ff-body);
+    font-size: 1rem;
+    color: var(--clr-text);
+    background-color: var(--clr-pure-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-base);
+}
+
+/* Focus ring: same pattern as the menu search box */
+.reservation-form input:focus,
+.reservation-form select:focus,
+.reservation-form textarea:focus {
+    outline: none;
+    border-color: var(--clr-accent);
+    box-shadow: 0 0 0 3px hsla(46, 65%, 52%, 0.25);
+}
+
+.reservation-form textarea {
+    resize: vertical; /* users may grow it downward, never sideways */
+}
+
+/* Date + time side by side, collapsing on small screens */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+}
+
+/* Error messages: invisible until JavaScript fills them */
+.form-error {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.875rem;
+    color: var(--clr-error);
+}
+
+.form-error:empty {
+    display: none;
+}
+
+/* Red border on the field that failed validation */
+.reservation-form .input-error {
+    border-color: var(--clr-error);
+}
+
+/* Submit button, full width inside the card */
+.reservation-form .btn-primary {
+    width: 100%;
+    margin-top: var(--space-sm);
+    border: none;
+    font-family: var(--ff-body);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Success panel, revealed after a valid submit */
+.form-success {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--clr-pure-white);
+    color: var(--clr-text);
+    border-radius: var(--radius-md);
+    border-top: 4px solid var(--clr-success);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-md);
+}
+
+.form-success h3 {
+    font-family: var(--ff-heading);
+    font-size: 1.75rem;
+    color: var(--clr-success);
+    margin-bottom: var(--space-sm);
+}
+
+.reservation .form-success p {
+    margin: 0;
+    color: var(--clr-text);
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
     }
 }

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <!-- Ensures proper viewport scaling on mobile/tablet devices -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Concise description for search engines & social previews -->
+        <meta name="description" content="Plan your visit to Dastarkhwan in Bahawalpur. Location, hours, contact details, and table reservations at a century-old Nawabi haveli.">
+        <!-- Preconnect to Google Fonts for faster loading -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Great+Vibes&family=Inter:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600;700&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        <link rel="manifest" href="/site.webmanifest">
+
+        <!--Title -->
+        <title>Plan Your Visit | Dastarkhwan</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    </head>
+    <body>
+        <a href="#main" class="skip-link">Skip to main content</a>
+        <header class="site-header">
+            <h1><a href="index.html" class="logo-link">Dastarkhwan</a></h1>
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link" >About</a></li>
+                    <li><a href="products.html" class="nav-link" >Products</a></li>
+                    <li><a href="visit.html" class="nav-link" aria-current="page">Visit</a></li>
+                </ul>
+            </nav>
+            <div class="favorites-indicator" aria-live="polite">
+                <span class="favorites-icon" aria-hidden="true">♥</span>
+                <span class="favorites-badge">0</span>
+            </div>
+        </header>
+        <main id="main" role="main" aria-label="Main content: Plan Your Visit">
+            <section class="page-hero page-hero--visit">
+                <div class="container">
+                    <h2>Plan Your Visit</h2>
+                    <p>Find us in the old city, where the lamps are lit and the dastarkhwan is always ready.</p>
+                </div>
+            </section>
+            <section class="visit-info">
+                <div class="container">
+                    <h2>Finding the Haveli</h2>
+                    <p class="section-intro">
+                        The haveli sits in Bahawalpur's old city, a short walk from the main bazaar.
+                        Walk-ins are always welcome, though evenings fill quickly.
+                    </p>
+
+                <div class="visit-info-grid">
+                <div class="visit-card">
+                <div class="visit-icon" aria-hidden="true">📍</div>
+                    <h3>Location</h3>
+                    <p>123 Heritage Road, Old City, Bahawalpur</p>
+                    <p>Look for the carved sandstone gate and the brass lanterns.</p>
+                </div>
+
+                <div class="visit-card">
+                <div class="visit-icon" aria-hidden="true">🕰️</div>
+                    <h3>Hours</h3>
+                    <p>Lunch: 12:00 PM - 3:30 PM</p>
+                    <p>Dinner: 7:00 PM - 11:00 PM</p>
+                    <p>Open every day. The courtyard is lit from sunset.</p>
+                </div>
+
+                <div class="visit-card">
+                <div class="visit-icon" aria-hidden="true">📞</div>
+                    <h3>Contact</h3>
+                    <p><a href="tel:+92621234567">+92 62 123 4567</a></p>
+                    <p><a href="mailto:info@dastarkhwan.pk">info@dastarkhwan.pk</a></p>
+                    <p>For parties of more than eight, please call us directly.</p>
+                </div>
+                </div>
+                </div>
+            </section>
+
+            <section class="reservation">
+                <div class="container">
+                    <h2>Reserve Your Table</h2>
+                    <p class="section-intro">
+                        Let us prepare the dastarkhwan for your arrival. We will call you shortly to confirm.
+                    </p>
+
+                <!-- novalidate tells the browser: "Don't show your default error bubbles. My JavaScript will handle it." -->
+                <form id="reservation-form" class="reservation-form" novalidate>
+            
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label for="res-name">Full Name</label>
+                        <input type="text" id="res-name" name="name" required autocomplete="name" aria-describedby="res-name-error">
+                        <span class="form-error" id="res-name-error" role="alert"></span>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label for="res-phone">Phone Number</label>
+                        <input type="tel" id="res-phone" name="phone" required autocomplete="tel" aria-describedby="res-phone-error">
+                        <span class="form-error" id="res-phone-error" role="alert"></span>
+                    </div>
+
+                    <!-- Date & Time (side-by-side on desktop) -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="res-date">Date</label>
+                            <input type="date" id="res-date" name="date" required aria-describedby="res-date-error">
+                            <span class="form-error" id="res-date-error" role="alert"></span>
+                        </div>
+                    <div class="form-group">
+                        <label for="res-time">Time Slot</label>
+                            <select id="res-time" name="time" required aria-describedby="res-time-error">
+                                <option value="">Select a time</option>
+                                <optgroup label="Lunch">
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="12:30">12:30 PM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="13:30">1:30 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                </optgroup>
+                                <optgroup label="Dinner">
+                                    <option value="19:00">7:00 PM</option>
+                                    <option value="19:30">7:30 PM</option>
+                                    <option value="20:00">8:00 PM</option>
+                                    <option value="20:30">8:30 PM</option>
+                                    <option value="21:00">9:00 PM</option>
+                                </optgroup>
+                            </select>
+                            <span class="form-error" id="res-time-error" role="alert"></span>
+                        </div>
+                    </div>
+
+                    <!-- Party Size -->
+                    <div class="form-group">
+                        <label for="res-guests">Party Size (Max 8)</label>
+                        <input type="number" id="res-guests" name="guests" min="1" max="8" required aria-describedby="res-guests-error">
+                        <span class="form-error" id="res-guests-error" role="alert"></span>
+                    </div>
+
+                    <!-- Special Requests -->
+                    <div class="form-group">
+                        <label for="res-requests">Special Requests (Optional)</label>
+                        <textarea id="res-requests" name="requests" rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Request Reservation</button>
+                </form>
+
+                    <!-- Success message (hidden by default, shown by JS after valid submit) -->
+                    <div class="form-success" id="form-success" hidden>
+                        <h3>Thank you!</h3>
+                        <p>Your reservation request has been received. We will call you shortly to confirm.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Brand Column -->
+                    <div class="footer-col">
+                        <h3 class="footer-logo">Dastarkhwan</h3>
+                        <p>A century-old tradition of culinary excellence, serving the royal flavors of Bahawalpur since 1920.</p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="products.html">Our Menu</a></li>
+                            <li><a href="visit.html">Visit Us</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <address class="footer-contact">
+                            <p>123 Heritage Road<br>Old City, Bahawalpur</p>
+                            <p>+92 62 123 4567</p>
+                            <p>info@dastarkhwan.pk</p>
+                        </address>
+                    </div>
+
+                    <!-- Hours -->
+                    <div class="footer-col">
+                        <h4>Hours</h4>
+                        <ul class="footer-hours">
+                            <li>Lunch: 12:00 PM - 3:30 PM</li>
+                            <li>Dinner: 7:00 PM - 11:00 PM</li>
+                            <li>Open Daily</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Dastarkhwan. All rights reserved.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <img src="/images/icons/facebook.svg" alt="Facebook" width="24" height="24">
+                        </a>
+                        <a href="#" aria-label="X (formerly Twitter)" class="social-link">
+                            <img src="/images/icons/x.svg" alt="X" width="24" height="24">
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <img src="/images/icons/instagram.svg" alt="Instagram" width="24" height="24">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+        <script src="js/scripts.js" defer></script>
+    </body>
+</html>

@@ -255,3 +255,139 @@ function initMenuSearch() {
 
 initMenuFilters();
 initMenuSearch();
+
+// ============================================
+// RESERVATION DRAFT (visit page, sessionStorage)
+// ============================================
+
+function saveDraft(form) {
+    // Collect every named field's current value into one object
+    const draft = {};
+    for (const field of form.elements) {
+        if (field.name) {
+            draft[field.name] = field.value;
+        }
+    }
+
+    try {
+        sessionStorage.setItem('dastarkhwanReservationDraft', JSON.stringify(draft));
+    } catch (error) {
+        console.warn('Could not save reservation draft:', error);
+    }
+}
+
+function restoreDraft(form) {
+    let draft = {};
+    try {
+        draft = JSON.parse(sessionStorage.getItem('dastarkhwanReservationDraft')) || {};
+    } catch (error) {
+        console.warn('Could not read reservation draft:', error);
+        return;
+    }
+
+    // Put each saved value back into its matching field
+    for (const field of form.elements) {
+        if (field.name && draft[field.name] !== undefined) {
+            field.value = draft[field.name];
+        }
+    }
+}
+
+function initReservationDraft() {
+    const form = document.querySelector('#reservation-form');
+    if (!form) return; // guard: only the visit page has this form
+
+    restoreDraft(form); // arrival: give the guest their words back
+
+    // Day 23 delegation: ONE listener on the form catches every field's input
+    form.addEventListener('change', () => {
+        saveDraft(form);
+    });
+}
+
+initReservationDraft();
+
+// ============================================
+// RESERVATION VALIDATION (visit page) — Layer 1
+// ============================================
+
+// Day 27: a custom error class.
+// A normal Error only carries a message. Ours also carries the id of the
+// field that failed, so we know exactly WHERE to show the message.
+class ValidationError extends Error {
+    constructor(message, fieldId) {
+        super(message);          // hand the message to the built-in Error
+        this.name = 'ValidationError';
+        this.fieldId = fieldId;  // extra property: which input failed
+    }
+}
+
+// --- Showing and clearing errors in the DOM ---
+
+function showFieldError(fieldId, message) {
+    const input = document.getElementById(fieldId);
+    const errorSpan = document.getElementById(fieldId + '-error');
+    if (input) input.classList.add('input-error');   // red border (from our CSS)
+    if (errorSpan) errorSpan.textContent = message;  // the message itself
+}
+
+function clearFieldError(fieldId) {
+    const input = document.getElementById(fieldId);
+    const errorSpan = document.getElementById(fieldId + '-error');
+    if (input) input.classList.remove('input-error');
+    if (errorSpan) errorSpan.textContent = '';
+}
+
+// ============================================
+// RESERVATION VALIDATION (visit page) — Layer 2
+// ============================================
+// One validator per field. Each takes the field's value and either
+// passes silently or throws a ValidationError carrying the message
+// and the id of the field it belongs to.
+
+function validateName(value) {
+    if (!value.trim()) {
+        throw new ValidationError('Please enter your full name.', 'res-name');
+    }
+}
+
+function validatePhone(value) {
+    const cleaned = value.trim();
+    if (!cleaned) {
+        throw new ValidationError('Please enter your phone number.', 'res-phone');
+    }
+    // Day 38 preview: a regex. Accepts 03001234567 or +923001234567.
+    const phonePattern = /^(\+92|0)3\d{9}$/;
+    if (!phonePattern.test(cleaned)) {
+        throw new ValidationError('Enter a valid number, like 03001234567.', 'res-phone');
+    }
+}
+
+function validateDate(value) {
+    if (!value) {
+        throw new ValidationError('Please choose a date.', 'res-date');
+    }
+    // 'T00:00:00' anchors parsing to local time (avoids a timezone trap)
+    const chosen = new Date(value + 'T00:00:00');
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // midnight today, ignoring the clock time
+    if (chosen < today) {
+        throw new ValidationError('That date has already passed. Please pick a future one.', 'res-date');
+    }
+}
+
+function validateTime(value) {
+    if (!value) {
+        throw new ValidationError('Please choose a time slot.', 'res-time');
+    }
+}
+
+function validateGuests(value) {
+    if (!value) {
+        throw new ValidationError('How many guests will be joining?', 'res-guests');
+    }
+    const guests = Number(value); // form values always arrive as strings
+    if (!Number.isInteger(guests) || guests < 1 || guests > 8) {
+        throw new ValidationError('For parties of more than eight, please call us directly.', 'res-guests');
+    }
+}
