@@ -195,7 +195,14 @@ function renderDishes(dishes) {
     menuGrid.innerHTML = cardsHTML;
 }
 
-renderDishes(menuData); // initial paint: show everything
+//renderDishes(menuData); // initial paint: show everything
+
+// Only render the menu where menu-data.js is loaded (products.html).
+// On other pages menuData is undefined, and referencing it would
+// throw an error and halt the rest of the script.
+if (typeof menuData !== 'undefined') {
+    renderDishes(menuData); // initial paint: show everything
+}
 
 // ============================================
 // MENU FILTERS + SEARCH (products page)
@@ -391,3 +398,69 @@ function validateGuests(value) {
         throw new ValidationError('For parties of more than eight, please call us directly.', 'res-guests');
     }
 }
+
+// ============================================
+// RESERVATION VALIDATION (visit page) — Layer 3
+// ============================================
+// The orchestrator's field list. Each entry pairs an input's id with
+// the function that checks it. Adding a field to the form later means
+// adding exactly one line here.
+const reservationFields = [
+    { id: 'res-name',   validate: validateName },
+    { id: 'res-phone',  validate: validatePhone },
+    { id: 'res-date',   validate: validateDate },
+    { id: 'res-time',   validate: validateTime },
+    { id: 'res-guests', validate: validateGuests },
+];
+
+function validateForm() {
+    let isValid = true;
+    let firstErrorField = null;
+
+    for (const field of reservationFields) {
+        const input = document.getElementById(field.id);
+        try {
+            field.validate(input.value);   // throws if the value is bad
+            clearFieldError(field.id);     // passed: remove any stale error
+        } catch (error) {
+            if (error instanceof ValidationError) {
+                showFieldError(error.fieldId, error.message);
+                isValid = false;
+                if (!firstErrorField) firstErrorField = input; // remember first problem
+            } else {
+                throw error;               // not one of ours: don't hide a real bug
+            }
+        }
+    }
+
+    return { isValid, firstErrorField };
+}
+
+// The submit handler: ties everything together (Day 24)
+function initReservationForm() {
+    const form = document.querySelector('#reservation-form');
+    if (!form) return; // guard: visit page only
+
+    const successPanel = document.getElementById('form-success');
+
+    form.addEventListener('submit', (event) => {
+        // Day 24: stop the browser's default navigation. There is no backend.
+        event.preventDefault();
+
+        const result = validateForm();
+
+        if (!result.isValid) {
+            // Send keyboard focus straight to the first problem field
+            if (result.firstErrorField) result.firstErrorField.focus();
+            return;
+        }
+
+        // Everything passed: swap the form for the success panel
+        form.hidden = true;
+        if (successPanel) successPanel.hidden = false;
+
+        // The Ghost Draft fix: a submitted draft must not refill on refresh
+        sessionStorage.removeItem('dastarkhwanReservationDraft');
+    });
+}
+initReservationForm();
